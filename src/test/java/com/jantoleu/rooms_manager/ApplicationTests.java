@@ -1,10 +1,10 @@
-package com.jantoleu.LightRooms;
+package com.jantoleu.rooms_manager;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class LightRoomsApplicationTests {
+class ApplicationTests {
 
 	@Test
 	void contextLoads() {
