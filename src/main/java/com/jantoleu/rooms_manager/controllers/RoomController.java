@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class RoomController {
 
-    @GetMapping("/index")
-    public String index(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
-        model.addAttribute("name", name);
+    @GetMapping({"/","index.html"})
+    public String index(@RequestParam(name="userName", required=false, defaultValue="World") String userNameParam, Model model) {
+        model.addAttribute("nameAttribute", userNameParam);
         return "index";
     }
 
