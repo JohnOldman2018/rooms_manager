@@ -1,0 +1,7 @@
+spring:
+  datasource: \
+    server: sql11.freemysqlhosting.net
+    driverClassName:sql11436834
+    username: sql11436834
+    password: 2fr5rNKsI6\
+    port-number: 3306
