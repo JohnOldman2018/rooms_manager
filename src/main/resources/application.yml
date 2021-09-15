@@ -4,4 +4,4 @@ spring:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://sql11.freemysqlhosting.net:3306/sql11436834
     username: sql11436834
-    port-number: 3306
+debug: true
