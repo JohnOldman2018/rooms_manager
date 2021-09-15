@@ -1,5 +1,5 @@
 --liquibase formatted sql
---changelog author:zhan logicalFilePath:insert_into_country
+--changeset author:zhan logicalFilePath:insert_countries
 insert into country values ('AF', 'Afghanistan');
 insert into country values ('AX', 'Aland Islands');
 insert into country values ('AL', 'Albania');
