@@ -1,7 +1,7 @@
 spring:
   datasource:
-    password: 2fr5rNKsI6
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://sql11.freemysqlhosting.net:3306/sql11436834
     username: sql11436834
+    password: 2fr5rNKsI6
 debug: true
