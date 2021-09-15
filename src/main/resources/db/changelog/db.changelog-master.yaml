@@ -2,5 +2,8 @@ databaseChangeLog:
   - include:
       file: tables.sql
       relativeToChangelogFile: true
+  - include:
+      file: countries.sql
+      relativeToChangelogFile: true
 
 
