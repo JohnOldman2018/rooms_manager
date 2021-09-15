@@ -1,4 +1,4 @@
-F nCREATE TABLE countries (
+CREATE TABLE countries (
     code VARCHAR (2) PRIMARY KEY,
     name VARCHAR (70) NOT NULL
 );
