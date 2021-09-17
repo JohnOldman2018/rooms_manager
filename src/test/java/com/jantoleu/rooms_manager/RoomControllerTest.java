@@ -1,5 +1,6 @@
 package com.jantoleu.rooms_manager;
 
+import com.jantoleu.rooms_manager.model.Room;
 import com.jantoleu.rooms_manager.repository.RoomRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -37,6 +38,22 @@ public class RoomControllerTest {
                 .andExpect(jsonPath("$.id", is(1)))
         ;
         assertTrue(roomRepository.findById(1).isPresent());
+
+}
+
+    @Test
+    public void setRoomStatusTest() throws Exception {
+        Room room = new Room();
+        room.setName("Room Name");
+        room.setLightIsOn(false);
+        room.setCountryCode("KZ");
+        roomRepository.save(room);
+
+
+        mvc.perform(post("/api/room/" + room.getId() + "/status/1")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+        roomRepository.findById(room.getId()).ifPresent((r) -> {assertTrue(r.getLightIsOn());});
 
     }
 }
