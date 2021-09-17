@@ -21,5 +21,13 @@ public class RoomService {
         return (List<Room>) roomRepository.findAll();
     }
 
+    public void setRoomStatus (Integer roomId, Boolean roomStatus){
+        Room room = roomRepository.findById(roomId).get();
+        room.setLightIsOn(roomStatus);
+        roomRepository.save(room);
+    }
+
+
+
 
 }
