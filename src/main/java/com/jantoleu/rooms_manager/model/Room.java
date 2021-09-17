@@ -14,4 +14,10 @@ public class Room {
     private String name;
     private String countryCode;
     private Boolean lightIsOn;
+
+
+
+    public Boolean getLightIsOn () {
+        return lightIsOn;
+    }
 }
