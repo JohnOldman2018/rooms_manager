@@ -5,6 +5,8 @@ import com.jantoleu.rooms_manager.repository.RoomRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class RoomService {
@@ -14,4 +16,10 @@ public class RoomService {
         room.setLightIsOn(false);
         return roomRepository.save(room);
     }
+
+    public List<Room> getAllRooms() {
+        return (List<Room>) roomRepository.findAll();
+    }
+
+
 }

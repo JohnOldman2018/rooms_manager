@@ -20,8 +20,9 @@ public class RoomController {
     }
 
     @GetMapping("/api/room")
-    public List<String> getAllRooms() {
-        return null;
+    public List<Room> getRooms() {
+        List<Room> rooms = roomService.getAllRooms();
+        return rooms;
     }
 
 }
