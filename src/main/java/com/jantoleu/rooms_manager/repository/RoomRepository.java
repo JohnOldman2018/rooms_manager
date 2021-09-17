@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RoomRepository extends CrudRepository<Room, Integer> {
+    Iterable<Room> findAll();
 }
