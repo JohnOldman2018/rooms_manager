@@ -25,11 +25,6 @@ public class RoomController {
         return rooms;
     }
 
-    @GetMapping("/api/room/{userCountryCode},{roomCountryCode}")
-    public void validateUserIpAddress(@PathVariable(value="userCountryCode") String userCountryCode, @PathVariable(value="roomCountryCode") String roomCountryCode) {
-        roomService.validateUserCountryCode(userCountryCode, roomCountryCode);
-    }
-
     @PostMapping("/api/room/{roomId}/status/{roomStatus}")
     public void setRoomStatus (@PathVariable(value="roomId") Integer roomId, @PathVariable(value="roomStatus") Boolean roomStatus) {
         roomService.setRoomStatus(roomId, roomStatus);
