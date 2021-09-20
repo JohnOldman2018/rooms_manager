@@ -26,6 +26,4 @@ public class RoomService {
         room.setLightIsOn(roomStatus);
         roomRepository.save(room);
     }
-
-
 }
