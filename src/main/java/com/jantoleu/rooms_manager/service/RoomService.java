@@ -30,7 +30,8 @@ public class RoomService {
 
     public String validateUserCountryCode(String userCountryCode, String roomCountryCode) {
         String warning = "You are not eligible to light the room!";
-        if (!userCountryCode.equals(roomCountryCode) {return warning;}
+        if (userCountryCode.equals(roomCountryCode)) {return "You are welcome!";}
+        return warning;
     }
 
 
