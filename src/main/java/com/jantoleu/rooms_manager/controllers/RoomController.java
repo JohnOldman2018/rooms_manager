@@ -25,6 +25,11 @@ public class RoomController {
         return rooms;
     }
 
+    @GetMapping("/api/room/{roomId}")
+    public void getRoom(@PathVariable(value="roomId") Integer roomId) {
+        roomService.getRoom(roomId);
+    }
+
     @PostMapping("/api/room/{roomId}/status/{roomStatus}")
     public void setRoomStatus (@PathVariable(value="roomId") Integer roomId, @PathVariable(value="roomStatus") Boolean roomStatus) {
         roomService.setRoomStatus(roomId, roomStatus);

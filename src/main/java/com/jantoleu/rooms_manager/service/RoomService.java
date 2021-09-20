@@ -26,4 +26,10 @@ public class RoomService {
         room.setLightIsOn(roomStatus);
         roomRepository.save(room);
     }
+
+    public Room getRoom(Integer roomId) {
+        Room room = roomRepository.findById(roomId).get();
+        return room;
+    }
+
 }
