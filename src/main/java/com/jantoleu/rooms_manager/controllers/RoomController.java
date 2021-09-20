@@ -26,8 +26,8 @@ public class RoomController {
     }
 
     @GetMapping("/api/room/{roomId}")
-    public void getRoom(@PathVariable(value="roomId") Integer roomId) {
-        roomService.getRoom(roomId);
+    public Room getRoom(@PathVariable(value="roomId") Integer roomId) {
+        return roomService.getRoom(roomId);
     }
 
     @PostMapping("/api/room/{roomId}/status/{roomStatus}")

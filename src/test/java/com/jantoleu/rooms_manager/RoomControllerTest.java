@@ -13,6 +13,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -54,6 +55,25 @@ public class RoomControllerTest {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
         roomRepository.findById(room.getId()).ifPresent((r) -> {assertTrue(r.getLightIsOn());});
+
+    }
+
+    @Test
+    public void getRoomTest() throws Exception {
+        Room room = new Room();
+        room.setName("Room Name");
+        room.setLightIsOn(false);
+        room.setCountryCode("AF");
+        roomRepository.save(room);
+
+
+        mvc.perform(get("/api/room/" + room.getId() )
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name", is("Room Name")))
+                .andExpect(jsonPath("$.countryCode", is("AF")))
+                .andExpect(jsonPath("$.id", is(1)))
+        ;
 
     }
 }
