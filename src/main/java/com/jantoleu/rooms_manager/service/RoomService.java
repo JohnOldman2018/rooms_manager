@@ -11,6 +11,8 @@ import java.util.List;
 @AllArgsConstructor
 public class RoomService {
     private RoomRepository roomRepository;
+    private IpAddressService ipAddressService;
+
 
     public Room createRoom(Room room) {
         room.setLightIsOn(false);
@@ -27,9 +29,13 @@ public class RoomService {
         roomRepository.save(room);
     }
 
-    public Room getRoom(Integer roomId) {
+    public Room getRoom(Integer roomId, String ipAddress) {
+        String countryCode = ipAddressService.getCountryCodeByIp(ipAddress);
         Room room = roomRepository.findById(roomId).get();
-        return room;
+        if (countryCode != null && countryCode.equals(room.getCountryCode())) {
+            return room;
+        }
+        return null;
     }
 
 }

@@ -3,8 +3,11 @@ package com.jantoleu.rooms_manager.controllers;
 import com.jantoleu.rooms_manager.model.Room;
 import com.jantoleu.rooms_manager.service.RoomService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -26,8 +29,12 @@ public class RoomController {
     }
 
     @GetMapping("/api/room/{roomId}")
-    public Room getRoom(@PathVariable(value="roomId") Integer roomId) {
-        return roomService.getRoom(roomId);
+    public Room getRoom(@PathVariable(value="roomId") Integer roomId, HttpServletRequest request) {
+        Room room = roomService.getRoom(roomId, request.getRemoteAddr());
+        if (room != null) {
+            return room;
+        }
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 
     @PostMapping("/api/room/{roomId}/status/{roomStatus}")
