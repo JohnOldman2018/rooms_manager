@@ -21,6 +21,7 @@ public class IpAddressService {
             return country.getCountryCode();
         } catch (URISyntaxException e) {
             e.printStackTrace();
+            return "";
         }
 
     }

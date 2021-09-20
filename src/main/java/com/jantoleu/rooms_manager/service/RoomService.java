@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @AllArgsConstructor
@@ -25,6 +26,11 @@ public class RoomService {
         Room room = roomRepository.findById(roomId).get();
         room.setLightIsOn(roomStatus);
         roomRepository.save(room);
+    }
+
+    public String validateUserCountryCode(String userCountryCode, String roomCountryCode) {
+        String warning = "You are not eligible to light the room!";
+        if (!userCountryCode.equals(roomCountryCode) {return warning;}
     }
 
 
