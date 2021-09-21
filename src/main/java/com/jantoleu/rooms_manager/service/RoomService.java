@@ -31,10 +31,10 @@ public class RoomService {
     }
 
     /**
-     * if testing locally then ip address would be the local one
+     *  if testing locally then ip address would be the local one
      *  not the IP given by your internet provider.
-     *  Therefor countryCode would be null.
-     *  Currently always returns room despite the country check.
+     *  Therefore, the countryCode would be null.
+     *  Currently, it always returns room despite the country check.
      *  (Check return ternary operator statement)
      *
      *  So, have to figure out the way to bypass this limitation.
