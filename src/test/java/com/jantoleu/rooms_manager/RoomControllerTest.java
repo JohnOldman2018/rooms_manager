@@ -66,7 +66,6 @@ public class RoomControllerTest {
         room.setCountryCode("KZ");
         roomRepository.save(room);
 
-
         mvc.perform(get("/api/room/" + room.getId() )
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
