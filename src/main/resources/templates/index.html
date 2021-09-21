@@ -1,12 +1,56 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta content="text/html" charset="UTF-8" http-equiv="Content-Type">
     <title>Room Lighting Manager</title>
+    <style>
+        body {text-align: center; padding-left: 30px;}
+        table, th, td {padding: 10px; border: thin solid; border-collapse: collapse;}
+        h2 {text-align: center;}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="js/room.js"></script>
+    <script src="js/country.js"></script>
 </head>
 <body>
-<h1>Hello the Great World of Programming!</h1>
-<p th:text="'Hello, ' + ${nameAttribute} + '!'" />
 
+<form id="createRoomForm" action="/api/room" method="post">
+    <label for="countrySelect">Room country:</label>
+    <br/>
+    <select id="countrySelect" name="contryCode">
+    </select>
+    <br/>
+
+    <label for="roomName">Room name:</label>
+    <br/>
+    <input id="roomName" name="name" type="text"/>
+    <br/>
+    <input type="submit" value="Submit"/>
+</form>
+
+<h3>Rooms List</h3>
+<table id="roomsTable">
+    <thead>
+    <tr>
+        <th>Room Id</th>
+        <th>Room Name</th>
+        <th>Country Code</th>
+        <th>Light Is On</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+</p>
+<script type="text/javascript">
+    roomService.getRooms();
+    countryService.getCountries();
+    $("#createRoomForm").submit(function(event){
+        event.preventDefault();
+        roomService.createRoom(roomService.getRooms);
+        return true;
+    });
+
+</script>
 </body>
 </html>

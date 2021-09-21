@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta content="text/html" charset="UTF-8" http-equiv="Content-Type">
+    <title>Room</title>
+    <style>
+        body {text-align: center; padding-left: 30px;}
+        table, th, td {padding: 10px; border: thin solid; border-collapse: collapse;}
+        h2 {text-align: center;}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="js/room.js"></script>
+</head>
+<body>
+
+    <table id="roomsTable">
+        <tbody>
+            <tr><td>Room Id</td><td id="roomIdCell"></td></tr>
+            <tr><td>Room Name</td><td id="roomNameCell"></td></tr>
+            <tr><td>Country Code</td><td id="countryCodeCell"></td></tr>
+            <tr><td>Light Is On</td><td id="lightIsOnCell"></td></tr>
+        </tbody>
+    </table>
+    <button onclick="roomService.switchRoomLight()">Switch room's light</button>
+
+    <script type="text/javascript" th:inline="javascript">
+        roomService.getRoom([[${roomId}]], () => {
+            setInterval(
+                () => {roomService.getRoom([[${roomId}]]);},
+                5000
+            );
+        });
+    </script>
+</body>
+</html>
